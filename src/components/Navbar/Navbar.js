@@ -1,14 +1,19 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import './Navbar.css'
 
 function Navbar() {
+    const [searchField, setSearchField] = useState('')
+
+    const upDateSearch = (e) =>
+    {
+        setSearchField(e.target.value)
+    }
     return (
         <nav className="navbar header-navbar">
-            {/* <img src="" alt="" className="movie-app-logo"/> */}
             <div className="temporary-logo">MOVIE TIME</div>
             <div className="navbar-items-container">
                 <div className="search-container">
-                    <input type="text" className="search-field"/>
+                    <input onChange={upDateSearch} type="text" className="search-field"/>
                     <div className="search-icon"></div>
                 </div>
                 <span>Home</span>

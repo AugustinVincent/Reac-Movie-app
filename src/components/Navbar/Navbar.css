@@ -9,6 +9,7 @@
     justify-content: space-between;
     align-items: center;
     color: var(--primary-text-color);
+    transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
   }
   
   .temporary-logo{
@@ -28,6 +29,7 @@
     align-items: center;
     width: 40%;
     margin: 30px;
+    padding-right: 50px;
   }
   
   .search-container{

@@ -3,6 +3,7 @@ import './FilmDisplay.css'
 import FilmCard from './FilmCard/FilmCard'
 
 function FilmDisplay(props) {
+    console.log(props.searchField)
     const movieDatas = props.movieDatas
     return (
         <div className="film-container">
