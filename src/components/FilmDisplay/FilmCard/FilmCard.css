@@ -1,0 +1,29 @@
+.film-cards{
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.film-cards .movie-poster-img{
+    width: 100%;
+}
+
+.film-cards .film-infos{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    box-sizing: border-box;
+    background: #050505;
+}
+
+.film-cards .film-infos h4{
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-right: 10px;
+}
+
+

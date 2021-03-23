@@ -1,23 +1,28 @@
-import logo from './logo.svg';
+import React, {useState, useEffect} from 'react'
 import './App.css';
+import FirstScreen from './components/FirstScreen/FirstScreen'
+import Navbar from './components/Navbar/Navbar'
+import FilmDisplay from './components/FilmDisplay/FilmDisplay'
+
+const LINK_API = "https://api.themoviedb.org/3/discover/movie?api_key=0bb47688d9717ccbbc0f747be389c94a&sort_by=popularity.desc"
+const IMG_API = "https://image.tmdb.org/t/p/w1280"
+const SEARCH_API = "https://api.themoviedb.org/3/search/movie?api_key=<<api_key>>&query="
 
 function App() {
+  const [movieDatas, setMovieDatas] = useState([])
+
+  useEffect(() =>
+  {
+    fetch(LINK_API).then(res => res.json())
+    .then(res => {
+      setMovieDatas(res.results)
+    })
+  }, [])
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar/>
+      <FirstScreen/>
+      <FilmDisplay movieDatas = {movieDatas}/>
     </div>
   );
 }
