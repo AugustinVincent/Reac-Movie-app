@@ -1,23 +1,21 @@
 import React, {useState, useEffect} from 'react'
 import StarsRate from './StarsRate/StarsRate'
 import './TextInfo.css'
-import '../../../../../public/star.svg'
 
-const MOVIE_API = "https://api.themoviedb.org/3/movie/791373?api_key=0bb47688d9717ccbbc0f747be389c94a&language=en-US"
-
-function TextInfo() {
-        return (
-            <div className="text-info">
-                <h2 className="movie-title">Spider-Man : HomeComing</h2>
-                <div className="related-movie-infos">
-                    <span className="year">2019</span>
-                    <span className="gender">Genre : <span className="blue-text">Action, Aventure</span> </span>
-                    <span className="actor"><span className="grey-text" >Avec :</span> Tom Holland</span>
-                    <StarsRate movieId={791373}/>
-                </div>
-                <p className="overview">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi laborum eum dolore expedita dicta. Officiis, expedita? Possimus, deleniti inventore. Incidunt, ipsum. Eius ipsa quaerat harum alias id unde quis libero? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem asperiores dolores iusto ipsam aperiam voluptatem sapiente! Ratione repellendus a, nemo placeat sint atque maiores exercitationem, consequatur eos, molestias suscipit minus!</p>
+function TextInfo(props) {
+    
+    return (
+        <div className="text-info">
+            <h2 className="movie-title">{props.firstMovie?.title}</h2>
+            <div className="related-movie-infos">
+                <span className="year">{props.firstMovie?.release_date.split('-')[0]}</span>
+                <span className="gender">Genre : <span className="blue-text">{props.firstMovie.genres[0]?.name}, {props.firstMovie?.genres[1].name}</span> </span>
+                <span className="actor"><span className="grey-text" >By :</span> {props.firstMovie.production_companies[0]?.name}</span>
+                <StarsRate movieId={props.firstMovie.id}/>
             </div>
-        )
+            <p className="overview">{props.firstMovie.overview}</p>
+        </div>
+    )
     
 }
 

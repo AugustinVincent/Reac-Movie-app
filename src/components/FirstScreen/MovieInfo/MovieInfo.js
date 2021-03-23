@@ -1,13 +1,14 @@
 import React from 'react'
 import TextInfo from './TextInfo/TextInfo'
 import Buttons from './Buttons/Buttons'
-
 import './MovieInfo.css'
 
-function MovieInfo() {
+
+
+function MovieInfo(props) {
     return (
         <div className="movie-info-container">
-            <TextInfo/>
+            <TextInfo firstMovie={props.firstMovie}/>
             <Buttons/>
         </div>
     )
