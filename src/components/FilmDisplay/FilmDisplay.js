@@ -8,7 +8,7 @@ function FilmDisplay(props) {
         <div className="film-container">
             {props.movieDatas.map((movieData, index) =>
                     (
-                        <FilmCard key={index} movieData={movieData}/>
+                        <FilmCard key={index} movieID={movieData.id} movieData={movieData}/>
                     ))}
         </div>
     )

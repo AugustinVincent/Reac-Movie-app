@@ -35,8 +35,9 @@
 .stars-container .star{
     width: 15px;
     height: 15px;
-    background: var(--primary-color);
-    margin : 5px
+    background: #666666;
+    margin : 5px;
+    clip-path: polygon(51% 0, 67% 31%, 100% 36%, 77% 63%, 83% 97%, 51% 81%, 18% 99%, 23% 61%, 0 36%, 34% 30%);
 }
 
 .grey-text{
