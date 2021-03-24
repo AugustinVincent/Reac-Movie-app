@@ -15,7 +15,7 @@
     width: 150px;
     height: 30px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     font-weight: bold;
     text-transform: uppercase;
@@ -28,8 +28,7 @@
 .trailer-btn .play-btn{
     width: 20px;
     height: 20px;
-    background: white;
-    margin: 5px;
+    margin: 15px;
     border-radius: 50%;
 }
 
@@ -57,7 +56,6 @@
 .favorite-btn{
     width: 20px;
     height: 20px;
-    background: white;
     margin: 5px;
     border-radius: 50%;
 }

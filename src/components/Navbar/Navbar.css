@@ -1,57 +1,77 @@
 .navbar.header-navbar{
-    position: fixed;
-    z-index: 10;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: var(--primary-text-color);
-    transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
-  }
-  
-  .temporary-logo{
-    width: 300px;
-    height: 60px;
-    margin: 30px;
-    line-height: 60px;
-    text-align: center;
-    text-transform: uppercase;
-    font-weight: 900;
-    font-size: 30px;
-  }
-  
-  .navbar-items-container{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 40%;
-    margin: 30px;
-    padding-right: 50px;
-  }
-  
-  .search-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  
-  }
-  
-  .search-field{
-    height: 20px;
-    width: 150px;
-    background: none;
-    border: none;
-    border-bottom: 1px solid var(--primary-text-color);
-    outline: none;
-    color: var(--primary-text-color);
-  }
-  
-  .search-icon{
-    width: 30px;
-    height: 30px;
-    background: var(--primary-text-color);
-    margin: 10px;
-  }
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--primary-text-color);
+  transition: .2s cubic-bezier(.72,.24,.28,.78);
+}
+
+.navbar.header-navbar *{
+ transition: .2s cubic-bezier(.72,.24,.28,.78);
+}
+
+.movie-time-logo{
+  width: 300px;
+  height: 60px;
+  margin: 30px;
+  line-height: 60px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.navbar-items-container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 40%;
+  margin: 30px;
+  padding-right: 50px;
+}
+
+.navbar-items-container span{
+
+  cursor: pointer;
+}
+
+.search-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.search-field{
+  height: 20px;
+  width: 150px;
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--primary-text-color);
+  outline: none;
+  color: var(--primary-text-color);
+  cursor: pointer;
+}
+
+.search-icon{
+  width: 30px;
+  height: 30px;
+  /* background: var(--primary-text-color); */
+  margin: 10px;
+}
+
+.navbar .movie-time-logo:hover{
+  color : var(--primary-color)
+}
+
+.navbar .navbar-items-container :hover{
+  color : var(--primary-color)
+}
+

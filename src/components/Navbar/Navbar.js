@@ -13,7 +13,7 @@ function Navbar() {
             <div className="navbar-items-container">
                 <div className="search-container">
                     <input onChange={upDateSearch} type="text" className="search-field"/>
-                    <div className="search-icon"></div>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/VisualEditor_-_Icon_-_Search-big_-_white.svg/1200px-VisualEditor_-_Icon_-_Search-big_-_white.svg.png" alt="" className="search-icon"/>
                 </div>
                 <span>Home</span>
                 <span>Favorites</span>

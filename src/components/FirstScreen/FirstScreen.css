@@ -12,6 +12,8 @@
   
   .landing-screen .background-landing-screen-img{
     width: 100vw;
+    min-height: calc(100vw / 1.8);
+    background: var(--primary-color);
   }
   
   .landing-screen-gradient{
