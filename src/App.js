@@ -37,7 +37,7 @@ function App() {
 
   useEffect(()=>
   {
-    fetch('https://api.themoviedb.org/3/discover/movie?api_key=0bb47688d9717ccbbc0f747be389c94a&sort_by=popularity.desc&page=1')
+    fetch(LINK_API)
       .then(result => result.json())
       .then(result => 
         {

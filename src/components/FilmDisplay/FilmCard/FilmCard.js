@@ -1,5 +1,6 @@
 import React from 'react'
 import './FilmCard.css'
+import StarsRate from '../../FirstScreen/MovieInfo/TextInfo/StarsRate/StarsRate'
 
 const MOVIE_API = "https://api.themoviedb.org/3/movie/791373?api_key=0bb47688d9717ccbbc0f747be389c94a&language=en-US";
 const IMG_API = "https://image.tmdb.org/t/p/w1280";
@@ -12,7 +13,7 @@ function FilmCard(props) {
             <img src={IMG_API + props.movieData.poster_path} alt="" className="movie-poster-img"/>
             <div className="film-infos">
                 <h4 className="film-title">{props.movieData.title}</h4>
-                <span className="film-popularity">{props.movieData.vote_average}</span>
+                <StarsRate movieId={props.movieData.id}/>
             </div>
         </div>
     )

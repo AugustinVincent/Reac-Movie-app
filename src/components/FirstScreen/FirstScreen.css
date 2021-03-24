@@ -37,5 +37,13 @@
     display: flex;
     justify-content: flex-start;
     align-items: flex-end;
-    padding: 100px;
+    padding: 8%;
   }
+
+  @media (max-width : 700px)
+{
+  .landing-screen .page-content{
+    justify-content: center;
+    align-items: center;
+  }
+}

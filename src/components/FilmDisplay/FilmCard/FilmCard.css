@@ -27,6 +27,8 @@
     white-space: nowrap;
     overflow: hidden;
     margin-right: 10px;
+    text-overflow: ellipsis;
+    line-height: 25px;
 }
 
 .film-cards:hover img{
