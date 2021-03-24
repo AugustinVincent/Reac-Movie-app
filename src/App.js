@@ -23,14 +23,14 @@ document.addEventListener('scroll', (event) =>
   }
 })
 
-
+console.log('arthur a tout cassé')
 
 function App() {
   const [movieDatas, setMovieDatas] = useState([])
   const [firstMovie, setFirstMovie] = useState('empty')
   const [searchField, setSearchField] = useState('')
 
-  
+
   useEffect(()=>
   {
     if(searchField !== '')
