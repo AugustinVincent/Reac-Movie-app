@@ -25,39 +25,18 @@ document.addEventListener('scroll', (event) =>
 
 
 
-fetch(SEARCH_API + 'flash')
-.then(result => result.json())
-.then(result => 
-  {
-    console.log(result)
-  })
 function App() {
   const [movieDatas, setMovieDatas] = useState([])
   const [firstMovie, setFirstMovie] = useState('empty')
+  const [searchField, setSearchField] = useState('')
 
+  
   useEffect(()=>
   {
-    fetch(LINK_API)
-      .then(result => result.json())
-      .then(result => 
-        {
-          fetch(`https://api.themoviedb.org/3/movie/${result.results?.[0]?.id}?api_key=0bb47688d9717ccbbc0f747be389c94a&language=en-US`)
-          .then(res => res.json())
-          .then(res => {
-            setFirstMovie(res)
-          })
-          const tempArray = result.results
-          tempArray.shift()
-          setMovieDatas(tempArray)
-        })
-  }, [])
-
-  const upDateSearch = (e) =>
-  {
-    if(e.target.value != '')
+    if(searchField !== '')
     {
 
-      fetch(SEARCH_API + e.target.value)
+      fetch(SEARCH_API + searchField)
       .then(result => result.json())
       .then(result => 
         {
@@ -71,6 +50,26 @@ function App() {
           setMovieDatas(tempArray)
         })
     }
+    else { 
+      fetch(LINK_API)
+      .then(result => result.json())
+      .then(result => 
+        {
+          fetch(`https://api.themoviedb.org/3/movie/${result.results?.[0]?.id}?api_key=0bb47688d9717ccbbc0f747be389c94a&language=en-US`)
+          .then(res => res.json())
+          .then(res => {
+            setFirstMovie(res)
+          })
+          const tempArray = result.results
+          tempArray.shift()
+          setMovieDatas(tempArray)
+        })
+      }
+  }, [searchField])
+
+  const upDateSearch = (e) =>
+  {
+    setSearchField(e.target.value)
   }
 
 
