@@ -6,13 +6,12 @@
     border-radius: 30px;
     overflow: hidden;
     transition: .2s cubic-bezier(.72,.24,.28,.78);
-    cursor: pointer;
 }
 
 .film-cards .movie-poster-img{
     width: 100%;
     min-height: 405px;
-    background : #080808;
+    background : none;
     transition: .2s cubic-bezier(.72,.24,.28,.78);
 }
 
@@ -64,7 +63,42 @@
     height: 80%;
     background: #010511;
     margin-top: 100px;
+    position: relative;
 }
+
+.exit-btn{
+    z-index: 50;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transform: rotate(45deg);
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.exit-btn :first-child{
+    width: 25px;
+    height: 3px;
+    border-radius: 10px;
+    background: #ececec;
+}
+
+.exit-btn :last-child{
+    width: 25px;
+    height: 3px;
+    background: #ececec;
+    border-radius: 10px;
+    transform: translateY(-2.5px) rotate(90deg);
+}
+
+
+
 .fullscreen-movie-container .backdrop-movie-container{
     position: relative;
     top: 0;

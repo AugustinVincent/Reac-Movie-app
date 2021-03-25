@@ -42,9 +42,10 @@ function FilmCard(props) {
             runtime -= 60
             movieTimers.hours += 1
         }
-        movieTimers.minutes = runtime
+        if(runtime < 10)  movieTimers.minutes = '0' + runtime
+        if(runtime > 10)  movieTimers.minutes =  runtime
 
-        return movieTimers.hours + 'h' + movieTimers.minutes
+        return movieTimers.hours + 'h' + movieTimers.minutes + 'm'
     }
 
     
@@ -60,7 +61,7 @@ function FilmCard(props) {
             <div onClick={displayFilmDetails} className="film-cards">
                 <img src={IMG_API + newMovieData?.poster_path} alt="" className="movie-poster-img"/>
                 <div className="film-infos">
-                    <h4 className="film-title">{newMovieData?.title}</h4>
+                    <h4 className="film-title">{newMovieData?.original_title}</h4>
                     <StarsRate movieId={newMovieData?.id}/>
                 </div>
             </div>
@@ -74,6 +75,10 @@ function FilmCard(props) {
 
                 <div  className="fullscreen-movie">
                     <div className="fullscreen-movie-container">
+                        <div onClick={displayFilmDetails} className="exit-btn">
+                                <div></div>
+                                <div></div>
+                        </div>
                         <div className="backdrop-movie-container">
                             <img src={IMG_API + newMovieData?.backdrop_path} alt="" className="background-img-movie"/>
                             <div className="landing-screen-gradient"></div>
@@ -81,14 +86,14 @@ function FilmCard(props) {
                                 <div className="top-container">
                                     <img src={IMG_API + newMovieData?.poster_path} className="movie-poster" alt=""/>
                                     <div className="right-container">
-                                        <h2 className="film-title">{newMovieData?.title}</h2>
+                                        <h2 className="film-title">{newMovieData?.original_title}</h2>
                                         <RelatedMoviesInfos firstMovie={newMovieData}/>
                                         <Buttons firstMovie={newMovieData}/>
                                     </div>
                                 </div>
                                 <div className="text-info-container">
 
-                                    <p onClick={displayFilmDetails} className="overview">{newMovieData?.overview}</p>
+                                    <p className="overview">{newMovieData?.overview}</p>
                                     <ul>
                                         <li>Runtime : {movieTime(newMovieData?.runtime)}</li>
                                         <li>From : {newMovieData?.production_c}</li>

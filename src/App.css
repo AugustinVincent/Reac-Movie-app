@@ -1,5 +1,43 @@
 :root{
   --primary-color : #009cff;
   --primary-text-color : #ececec;
-  --primary-bg-color : #222222;
+  --primary-bg-color : #010511;
+}
+
+a{
+  text-decoration: none;
+  color: var(----primary-text-color);
+}
+
+.pages-btns{
+  background: var(--primary-bg-color);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100px;
+}
+
+
+.pages-btns .btn{
+
+  width: 150px;
+  height: 30px;
+  border-radius: 30px;
+  color: var(--primary-text-color);
+  text-transform: uppercase;
+  font-weight: bold;
+  background: var(--primary-color);
+  line-height: 30px;
+  text-align: center;
+  cursor: pointer;
+  transition: .2s cubic-bezier(.72,.24,.28,.78);
+}
+
+.pages-btns .btn:hover{
+  font-size: 18px;
+}
+
+.next-btn{
+  margin-left: 20px;
 }

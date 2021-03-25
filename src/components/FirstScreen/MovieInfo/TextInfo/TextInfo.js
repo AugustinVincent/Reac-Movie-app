@@ -10,7 +10,7 @@ function TextInfo(props) {
     }
     return (
         <div className="text-info">
-            <h2 className="movie-title">{props.firstMovie?.title}</h2>
+            <h2 className="movie-title">{props.firstMovie?.original_title}</h2>
             <RelatedMoviesInfos firstMovie={props.firstMovie}/>
             <p className="overview">{props.firstMovie.overview}</p>
         </div>
