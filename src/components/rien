@@ -1,0 +1,58 @@
+<Router>
+      <div>
+        <div className="App">
+          <nav className="navbar header-navbar">
+                <div className="movie-time-logo">MOVIE TIME</div>
+                <div className="navbar-items-container">
+                    <div className="search-container">
+                        <input onChange={upDateSearch} type="text" className="search-field"/>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/VisualEditor_-_Icon_-_Search-big_-_white.svg/1200px-VisualEditor_-_Icon_-_Search-big_-_white.svg.png" alt="" className="search-icon"/>
+                    </div>
+                    <Link to= '/favoriteMovie'>Home</Link>
+                    <span><Link to= '/favoriteMovie'>Favorites</Link></span>
+
+                    <Switch>
+                      <Route exact path="/">
+                        {/* </ /> */}
+                      </Route>
+                      {/* <Route path="/favorite">
+                        <Favorite />
+                      </Route> */}
+                    </Switch>
+                </div>   
+            </nav>
+        </div>
+          <FirstScreen firstMovie={firstMovie}/>
+            <FilmDisplay movieDatas = {movieDatas}/>
+            <div className="pages-btns">
+              <div onClick={previousPage} className="previous-btn btn">Previous</div>
+              <div onClick={nextPage} className="next-btn btn">Next</div>
+        </div>
+      </div>
+    </Router>
+  )
+
+
+      <div className="App">
+      <nav className="navbar header-navbar">
+            <div className="movie-time-logo">MOVIE TIME</div>
+            <div className="navbar-items-container">
+                <div className="search-container">
+                    <input onChange={upDateSearch} type="text" className="search-field"/>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/VisualEditor_-_Icon_-_Search-big_-_white.svg/1200px-VisualEditor_-_Icon_-_Search-big_-_white.svg.png" alt="" className="search-icon"/>
+                </div>
+
+                <a href='#' ><span>Home</span></a>
+Ici, je veux lié à la page de base, avec NavBar + firstScreen + FilmDisplay
+
+
+                <span>Favorites</span>
+            </div>
+        </nav>
+      {/* <Navbar/> */}
+      <FirstScreen firstMovie={firstMovie}/>
+      <FilmDisplay movieDatas = {movieDatas}/>
+      <div className="pages-btns">
+        <div onClick={previousPage} className="previous-btn btn">Previous</div>
+        <div onClick={nextPage} className="next-btn btn">Next</div>
+      </div>
