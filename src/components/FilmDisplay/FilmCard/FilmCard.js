@@ -24,7 +24,8 @@ function FilmCard(props) {
                 .then(res => res.json())
                 .then(res => 
                     {
-                        setRelatedMovies(res)
+                        console.log('related movie', res.results)
+                        setRelatedMovies(res.results)
                     })
             })
 
@@ -36,7 +37,6 @@ function FilmCard(props) {
             hours : 0,
             minutes : 0
         }
-
         while(runtime > 60)
         {
             runtime -= 60
@@ -96,7 +96,7 @@ function FilmCard(props) {
                                     <p className="overview">{newMovieData?.overview}</p>
                                     <ul>
                                         <li>Runtime : {movieTime(newMovieData?.runtime)}</li>
-                                        <li>From : {newMovieData?.production_c}</li>
+                                        <li>From : {newMovieData?.production_countries?.[0]?.name}</li>
                                         <li>Arthur : Thouin</li>
                                     </ul>
                                 </div>
