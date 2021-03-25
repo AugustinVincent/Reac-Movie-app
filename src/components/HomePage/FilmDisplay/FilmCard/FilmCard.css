@@ -60,7 +60,7 @@
     border-radius: 20px;
     overflow: hidden;
     width: 800px;
-    height: 70%;
+    height: 75%;
     background: #010511;
     margin-top: 100px;
     position: relative;
@@ -196,5 +196,6 @@
 }
 
 .fullscreen-movie-container .related-movies {
-    padding: 30px;
+    padding: 20px;
+    padding-top: 0;
 }

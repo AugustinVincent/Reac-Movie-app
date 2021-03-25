@@ -10,7 +10,7 @@ import {
 import './App.css';
 import './components/Navbar.css'
 import FirstScreen from './components/FirstScreen/FirstScreen'
-import FilmDisplay from './components/FilmDisplay/FilmDisplay'
+import FilmDisplay from './components/HomePage/FilmDisplay/FilmDisplay'
 
 document.addEventListener('scroll', (event) =>
 {
@@ -27,6 +27,8 @@ document.addEventListener('scroll', (event) =>
 })
 
 
+fetch('https://api.themoviedb.org/3/list?api_key=0bb47688d9717ccbbc0f747be389c94a').then(res => res.json).then(res => console.log(res))
+
 function App(){
   const [searchField, setSearchField] = useState('')
 
@@ -41,7 +43,7 @@ function App(){
     <Router>
       <div>
         <div className="App">
-        <nav className="navbar header-navbar">
+          <nav className="navbar header-navbar">
               <div className="movie-time-logo"><Link to='/'>MOVIE TIME</Link></div>
               <div className="navbar-items-container">
                   <div className="search-container">
@@ -54,13 +56,13 @@ function App(){
           </nav>
         </div>
         <Switch>
-         <Route exact path="/">
-            <Home searchField = {searchField} />
-         </Route>
-         <Route exact path="/favorites">
-            <Favorite />
-         </Route>
-      </Switch>
+          <Route exact path="/">
+              <Home searchField = {searchField} />
+          </Route>
+          <Route exact path="/favorites">
+              <Favorite />
+          </Route>
+        </Switch>
       </div>
     </Router>
 
