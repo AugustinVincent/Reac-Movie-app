@@ -28,7 +28,6 @@ function App() {
   const [firstMovie, setFirstMovie] = useState('empty')
   const [searchField, setSearchField] = useState('')
   const [pageNumber, setPageNumber] = useState(1)
-  let maxPageNumber = 5
   useEffect(()=>
   {
     if(searchField !== '')
@@ -72,13 +71,6 @@ function App() {
     setPageNumber(1)
   }
 
-  // const updatePageNumber = () =>
-  // {
-  //   console.log(maxPageNumber)
-  //   if(pageNumber > 1) setPageNumber(pageNumber - 1)
-  //   else setPageNumber(pageNumber + 1)
-  // }
-
   const previousPage = () =>
   {
     if(pageNumber > 1)
@@ -105,14 +97,14 @@ function App() {
             <div className="movie-time-logo">MOVIE TIME</div>
             <div className="navbar-items-container">
                 <div className="search-container">
-                    <input onChange={upDateSearch} type="text" className="search-field"/>
+                    <input onChange={upDateSearch} type="text" className="search-field" value={searchField}/>
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/VisualEditor_-_Icon_-_Search-big_-_white.svg/1200px-VisualEditor_-_Icon_-_Search-big_-_white.svg.png" alt="" className="search-icon"/>
                 </div>
                 <a href='#' ><span>Home</span></a>
                 <span>Favorites</span>
             </div>
         </nav>
-      {/* <Navbar/> */}
+      {/* <Navbar searchField={}/> */}
       <FirstScreen firstMovie={firstMovie}/>
       <FilmDisplay movieDatas = {movieDatas}/>
       <div className="pages-btns">

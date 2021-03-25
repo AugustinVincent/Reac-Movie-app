@@ -127,6 +127,7 @@
     top: 0;
     left: 0;
     display: flex;
+    justify-content: flex-end;
     align-items: center;
     flex-direction: column;
     width: 100%;
@@ -178,7 +179,7 @@
     width: 100%;
 }
 
-.fullscreen-movie-container .content .overview{
+.fullscreen-movie-container .overview{
     width: 50%;
     color: #999999;
 }

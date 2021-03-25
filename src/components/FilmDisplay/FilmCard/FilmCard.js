@@ -8,9 +8,9 @@ import GenderRelatedMovies from './GenderRelatedMovies/GenderRelatedMovies';
 
 const IMG_API = "https://image.tmdb.org/t/p/w1280";
 function FilmCard(props) {
-    const [fullscreenMovie, setFullscreenMovie] = useState(false)
     const [newMovieData, setNewMovieData] = useState(props.movieData)
     const [relatedMovies, setRelatedMovies] = useState({})
+    const [fullscreenMovie, setFullscreenMovie] = useState(false)
     const displayFilmDetails  = () =>
     {
         const MOVIE_API =`https://api.themoviedb.org/3/movie/${props.movieId}?api_key=0bb47688d9717ccbbc0f747be389c94a&language=en-US`
@@ -91,22 +91,19 @@ function FilmCard(props) {
                                         <Buttons firstMovie={newMovieData}/>
                                     </div>
                                 </div>
-                                <div className="text-info-container">
-
-                                    <p className="overview">{newMovieData?.overview}</p>
-                                    <ul>
-                                        <li>Runtime : {movieTime(newMovieData?.runtime)}</li>
-                                        <li>From : {newMovieData?.production_countries?.[0]?.name}</li>
-                                        <li>Arthur : Thouin</li>
-                                    </ul>
-                                </div>
+                                
 
                             </div>
                         </div>
                         <div className="related-movies">
-                            <h2 className='related-movie-title'>You could like them...</h2>
-                            <div className="gender-films-container">
-                                <GenderRelatedMovies relatedMovies={relatedMovies}/>
+                            <div className="text-info-container">
+
+                                <p className="overview">{newMovieData?.overview}</p>
+                                <ul>
+                                    <li>Runtime : {movieTime(newMovieData?.runtime)}</li>
+                                    <li>From : {newMovieData?.production_countries?.[0]?.name}</li>
+                                    <li>Arthur : Thouin</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
