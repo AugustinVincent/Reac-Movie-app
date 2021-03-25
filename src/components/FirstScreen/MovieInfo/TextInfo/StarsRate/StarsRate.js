@@ -39,38 +39,22 @@ function StarsRate(props) {
                 
                 <div className="star">
                     <div className="star-color" style={{background : "var(--primary-color)" , width : starsWidth[0], height : '100%'}}></div>
-                    <div className="star-glow">
-                        <div className="star-color" style={{background : "var(--primary-color)" , width : starsWidth[0], height : '100%'}}></div>
-                    </div>
                 </div>
                 
                 <div className="star">
                     <div className="star-color" style={{background : "var(--primary-color)" , width : starsWidth[1], height : '100%'}}></div>
-                    <div className="star-glow">
-                        <div className="star-color" style={{background : "var(--primary-color)" , width : starsWidth[0], height : '100%'}}></div>
-                    </div>
                 </div>
 
                 <div className="star">
                     <div className="star-color" style={{background : "var(--primary-color)" , width : starsWidth[2], height : '100%'}}></div>
-                    <div className="star-glow">
-                        <div className="star-color" style={{background : "var(--primary-color)" , width : starsWidth[0], height : '100%'}}></div>
-                    </div>
                 </div>
-                
 
                 <div className="star">
                     <div className="star-color" style={{background : "var(--primary-color)" , width : starsWidth[3], height : '100%'}}></div>
-                    <div className="star-glow">
-                        <div className="star-color" style={{background : "var(--primary-color)" , width : starsWidth[0], height : '100%'}}></div>
-                    </div>
                 </div>
 
                 <div className="star">
                     <div className="star-color" style={{background : "var(--primary-color)" , width : starsWidth[4], height : '100%'}}></div>
-                    <div className="star-glow">
-                        <div className="star-color" style={{background : "var(--primary-color)" , width : starsWidth[0], height : '100%'}}></div>
-                    </div>
                 </div>
 
             </div>

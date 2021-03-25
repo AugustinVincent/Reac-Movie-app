@@ -12,42 +12,8 @@
     margin-bottom: 10px;
 }
 
-.related-movie-infos{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    white-space: pre-wrap;
-}
 
-.related-movie-infos .year{
-    width: 70px;
-    height: 20px;
-    line-height: 20px;
-    text-align: center;
-    border: 1px solid #444444;
-    border-radius: 30px;
-}
-.related-movie-infos span {
-    margin: 0 10px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 30%;
-}
-.stars-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-.stars-container .star{
-    width: 15px;
-    height: 15px;
-    background: #666666;
-    margin : 5px;
-    clip-path: polygon(51% 0, 67% 31%, 100% 36%, 77% 63%, 83% 97%, 51% 81%, 18% 99%, 23% 61%, 0 36%, 34% 30%);
-}
 
 .grey-text{
     color: #777777 !important;

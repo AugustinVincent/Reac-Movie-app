@@ -86,10 +86,12 @@ function App() {
                 <span>Favorites</span>
             </div>
         </nav>
+      {/* <Navbar/> */}
       <FirstScreen firstMovie={firstMovie}/>
       <FilmDisplay movieDatas = {movieDatas}/>
     </div>
   );
+  
   
 
 }

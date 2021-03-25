@@ -9,7 +9,7 @@ function Navbar() {
     }
     return (
         <nav className="navbar header-navbar">
-            <div className="temporary-logo">MOVIE TIME</div>
+            <div className="movie-time-logo">MOVIE TIME</div>
             <div className="navbar-items-container">
                 <div className="search-container">
                     <input onChange={upDateSearch} type="text" className="search-field"/>

@@ -1,8 +1,12 @@
 .film-container{
-    background: #000000;
+    background: #010511;
     padding: 50px;
     color: var(--primary-text-color);
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
 }
+/* 
+.film-container *{
+    transition: 2s cubic-bezier(.72,.24,.28,.78);
+} */

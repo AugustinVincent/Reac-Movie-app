@@ -7,11 +7,11 @@ const SEARCH_API = "https://api.themoviedb.org/3/search/movie?api_key=0bb47688d9
 const LINK_API = "https://api.themoviedb.org/3/discover/movie?api_key=0bb47688d9717ccbbc0f747be389c94a&sort_by=popularity.desc&page=1";
 
 function FilmDisplay(props) {
-    return (
+    return ( 
         <div className="film-container">
             {props.movieDatas.map((movieData, index) =>
                     (
-                        <FilmCard key={index} movieId={movieData.id} movieData={movieData}/>
+                        <FilmCard  key={index} movieId={movieData.id} movieData={movieData}/>
                     ))}
         </div>
     )
