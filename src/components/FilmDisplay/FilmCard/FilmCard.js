@@ -3,14 +3,12 @@ import './FilmCard.css'
 import StarsRate from '../../FirstScreen/MovieInfo/TextInfo/StarsRate/StarsRate'
 import RelatedMoviesInfos from '../../FirstScreen/MovieInfo/TextInfo/RelatedMoviesInfos/RelatedMoviesInfos';
 import Buttons from '../../FirstScreen/MovieInfo/Buttons/Buttons';
-import GenderRelatedMovies from './GenderRelatedMovies/GenderRelatedMovies';
 
 
 const IMG_API = "https://image.tmdb.org/t/p/w1280";
 function FilmCard(props) {
     const [fullscreenMovie, setFullscreenMovie] = useState(false)
     const [newMovieData, setNewMovieData] = useState(props.movieData)
-    const [relatedMovies, setRelatedMovies] = useState({})
     const displayFilmDetails  = () =>
     {
         const MOVIE_API =`https://api.themoviedb.org/3/movie/${props.movieId}?api_key=0bb47688d9717ccbbc0f747be389c94a&language=en-US`
@@ -19,14 +17,6 @@ function FilmCard(props) {
         .then(res => 
             {
                 setNewMovieData(res)
-                const GENDER_API =`https://api.themoviedb.org/3/discover/movie?api_key=0bb47688d9717ccbbc0f747be389c94a&language=en-US&sort_by=popularity.desc&page=1&with_genres=${res?.genres?.[0].id}`
-                fetch(GENDER_API)
-                .then(res => res.json())
-                .then(res => 
-                    {
-                        console.log('related movie', res.results)
-                        setRelatedMovies(res.results)
-                    })
             })
 
         setFullscreenMovie(!fullscreenMovie)
@@ -52,7 +42,6 @@ function FilmCard(props) {
     useEffect(() =>
     {
         setNewMovieData(props.movieData)
-        console.log('rerender')
     }, [fullscreenMovie, props])
     if(!fullscreenMovie)
     {
@@ -91,22 +80,19 @@ function FilmCard(props) {
                                         <Buttons firstMovie={newMovieData}/>
                                     </div>
                                 </div>
-                                <div className="text-info-container">
-
-                                    <p className="overview">{newMovieData?.overview}</p>
-                                    <ul>
-                                        <li>Runtime : {movieTime(newMovieData?.runtime)}</li>
-                                        <li>From : {newMovieData?.production_countries?.[0]?.name}</li>
-                                        <li>Arthur : Thouin</li>
-                                    </ul>
-                                </div>
+                                
 
                             </div>
                         </div>
                         <div className="related-movies">
-                            <h2 className='related-movie-title'>You could like them...</h2>
-                            <div className="gender-films-container">
-                                <GenderRelatedMovies relatedMovies={relatedMovies}/>
+                            <div className="text-info-container">
+
+                                <p className="overview">{newMovieData?.overview}</p>
+                                <ul>
+                                    <li>Runtime : {movieTime(newMovieData?.runtime)}</li>
+                                    <li>From : {newMovieData?.production_countries?.[0]?.name}</li>
+                                    <li>Arthur : Thouin</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
