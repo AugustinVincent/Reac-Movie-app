@@ -38,6 +38,15 @@ function favoriteMovie() {
 
 
 function App(){
+  const [searchField, setSearchField] = useState('')
+
+  const upDateSearch = (e) =>
+  {
+    setSearchField(e.target.value)
+    // setPageNumber(1)
+  }
+
+
   return (
     <Router>
       <div>
@@ -46,7 +55,7 @@ function App(){
               <div className="movie-time-logo"><Link to='/'>MOVIE TIME</Link></div>
               <div className="navbar-items-container">
                   <div className="search-container">
-                      <input type="text" className="search-field"/>
+                      <input onchange = {upDateSearch} type="text" className="search-field"/>
                       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/VisualEditor_-_Icon_-_Search-big_-_white.svg/1200px-VisualEditor_-_Icon_-_Search-big_-_white.svg.png" alt="" className="search-icon"/>
                   </div>
                   <span><Link to='/'>Home</Link></span>
@@ -56,7 +65,7 @@ function App(){
         </div>
         <Switch>
          <Route exact path="/">
-            <Home />
+            <Home searchField = {searchField} />
          </Route>
          <Route exact path="/favorites">
             <Favorite />
@@ -67,7 +76,7 @@ function App(){
 
   )}
 
-  function Home() {
+  function Home(props) {
     const [movieDatas, setMovieDatas] = useState([])
     const [firstMovie, setFirstMovie] = useState('empty')
     const [searchField, setSearchField] = useState('')
@@ -75,10 +84,10 @@ function App(){
     let maxPageNumber = 5
     useEffect(()=>
     {
-      if(searchField !== '')
+      if(props.searchField !== '')
       {
   
-        fetch(`https://api.themoviedb.org/3/search/movie?api_key=0bb47688d9717ccbbc0f747be389c94a&language=en-US&sort_by=popularity.desc&page=${pageNumber}&query=${searchField}`)
+        fetch(`https://api.themoviedb.org/3/search/movie?api_key=0bb47688d9717ccbbc0f747be389c94a&language=en-US&sort_by=popularity.desc&page=${pageNumber}&query=${props.searchField}`)
         .then(result => result.json())
         .then(result => 
           {
@@ -108,7 +117,7 @@ function App(){
             setMovieDatas(tempArray)
           })
         }
-    }, [searchField, pageNumber])
+    }, [props.searchField, pageNumber])
   
     const upDateSearch = (e) =>
     {
@@ -154,10 +163,7 @@ function App(){
         </div>
   
       </div>
-    );
-    
-    
-  
+    );  
   }
 
 function Favorite() {
@@ -165,10 +171,6 @@ function Favorite() {
         <div>Do not share screen</div>
         )
     }
-
-
-
-
     
 export default App;
 
