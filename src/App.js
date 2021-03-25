@@ -1,4 +1,12 @@
 import React, {useState, useEffect} from 'react'
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
 import './App.css';
 import './components/Navbar/Navbar.css'
 import FirstScreen from './components/FirstScreen/FirstScreen'
@@ -98,33 +106,35 @@ function App() {
 
     window.scrollTo({ top : 0, behavior : 'smooth'})
   }
- 
   return (
-    <div className="App">
-      <nav className="navbar header-navbar">
-            <div className="movie-time-logo">MOVIE TIME</div>
-            <div className="navbar-items-container">
-                <div className="search-container">
-                    <input onChange={upDateSearch} type="text" className="search-field"/>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/VisualEditor_-_Icon_-_Search-big_-_white.svg/1200px-VisualEditor_-_Icon_-_Search-big_-_white.svg.png" alt="" className="search-icon"/>
+    <Router>
+      <div>
+        <div className="App">
+          <nav className="navbar header-navbar">
+                <div className="movie-time-logo">MOVIE TIME</div>
+                <div className="navbar-items-container">
+                    <div className="search-container">
+                        <input onChange={upDateSearch} type="text" className="search-field"/>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/VisualEditor_-_Icon_-_Search-big_-_white.svg/1200px-VisualEditor_-_Icon_-_Search-big_-_white.svg.png" alt="" className="search-icon"/>
+                    </div>
+                    <Link to= './'>Home</Link>
+                    <span><Link to= './fav'>Favorites</Link></span>
                 </div>
-                <a href='#' ><span>Home</span></a>
-                <span>Favorites</span>
-            </div>
-        </nav>
-      {/* <Navbar/> */}
-      <FirstScreen firstMovie={firstMovie}/>
-      <FilmDisplay movieDatas = {movieDatas}/>
-      <div className="pages-btns">
-        <div onClick={previousPage} className="previous-btn btn">Previous</div>
-        <div onClick={nextPage} className="next-btn btn">Next</div>
+            </nav>
+        </div>
+          <FirstScreen firstMovie={firstMovie}/>
+            <FilmDisplay movieDatas = {movieDatas}/>
+            <div className="pages-btns">
+              <div onClick={previousPage} className="previous-btn btn">Previous</div>
+              <div onClick={nextPage} className="next-btn btn">Next</div>
+        </div>
       </div>
-
-    </div>
-  );
-  
-  
-
+    </Router>
+  )
 }
 
 export default App;
+
+
+
+ 
