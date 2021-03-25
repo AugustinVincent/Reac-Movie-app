@@ -77,7 +77,7 @@ function FilmCard(props) {
                                     <div className="right-container">
                                         <h2 className="film-title">{newMovieData?.original_title}</h2>
                                         <RelatedMoviesInfos firstMovie={newMovieData}/>
-                                        <Buttons firstMovie={newMovieData}/>
+                                        <Buttons firstMovie={newMovieData} favoritesMovies={props.favoritesMovies}/>
                                     </div>
                                 </div>
                                 

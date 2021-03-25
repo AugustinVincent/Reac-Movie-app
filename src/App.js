@@ -9,8 +9,9 @@ import {
 
 import './App.css';
 import './components/Navbar.css'
-import FirstScreen from './components/FirstScreen/FirstScreen'
+import FirstScreen from './components/HomePage/FirstScreen/FirstScreen'
 import FilmDisplay from './components/HomePage/FilmDisplay/FilmDisplay'
+import FavoriteMoviecard from './components/Favorites/FavoriteMovieCard/FavoriteMoviecard'
 
 document.addEventListener('scroll', (event) =>
 {
@@ -27,11 +28,10 @@ document.addEventListener('scroll', (event) =>
 })
 
 
-fetch('https://api.themoviedb.org/3/list?api_key=0bb47688d9717ccbbc0f747be389c94a').then(res => res.json).then(res => console.log(res))
 
 function App(){
   const [searchField, setSearchField] = useState('')
-
+  const [favoritesMovies, setFavoritesMovies] = useState([])
   const upDateSearch = (e) =>
   {
     setSearchField(e.target.value)
@@ -57,10 +57,10 @@ function App(){
         </div>
         <Switch>
           <Route exact path="/">
-              <Home searchField = {searchField} />
+              <Home searchField = {searchField} favoritesMovies={favoritesMovies}/>
           </Route>
           <Route exact path="/favorites">
-              <Favorite />
+              <Favorite favoritesMovies={favoritesMovies}/>
           </Route>
         </Switch>
       </div>
@@ -134,8 +134,8 @@ function App(){
     return (
       <div className="App">
         {/* <Navbar/> */}
-        <FirstScreen firstMovie={firstMovie}/>
-        <FilmDisplay movieDatas = {movieDatas}/>
+        <FirstScreen favoritesMovies={props.favoritesMovies} firstMovie={firstMovie}/>
+        <FilmDisplay favoritesMovies={props.favoritesMovies} movieDatas = {movieDatas}/>
         <div className="pages-btns">
           <div onClick={previousPage} className="previous-btn btn">Previous</div>
           <div onClick={nextPage} className="next-btn btn">Next</div>
@@ -145,9 +145,16 @@ function App(){
     );  
   }
 
-function Favorite() {
+function Favorite(props) {
+    console.log('nreder favorites')
     return (
-        <div>Do not share screen</div>
+        <div className="favorites-container">
+          <h1 className="favorite-title">Favorites movies</h1>
+          {props.favoritesMovies.map((favoriteMovie, index) =>
+          ( 
+            <FavoriteMoviecard favoriteMovie={favoriteMovie} key={index}/>
+          ))}
+        </div>
         )
     }
     
