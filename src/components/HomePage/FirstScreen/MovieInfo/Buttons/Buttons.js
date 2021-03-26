@@ -6,7 +6,6 @@ import AddToFavoritesBtn from './AddToFavoritesBtn'
 import './Buttons.css'
 
 function Buttons(props) {
-    console.log(props.favoritesMovies)
     return (
         <div className="buttons-container">
             <SeeTrailerBtn/>

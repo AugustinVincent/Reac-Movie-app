@@ -10,7 +10,7 @@ function FirstScreen(props) {
             <img src={IMG_API + props.firstMovie?.backdrop_path} className="background-landing-screen-img"alt=""/>
             <div className="landing-screen-gradient"></div>
             <div className="page-content">
-                <MovieInfo firstMovie={props.firstMovie}/>
+                <MovieInfo favoritesMovies={props.favoritesMovies} firstMovie={props.firstMovie}/>
             </div>
         </div>
     )

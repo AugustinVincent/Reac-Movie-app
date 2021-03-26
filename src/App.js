@@ -8,10 +8,11 @@ import {
 } from "react-router-dom";
 
 import './App.css';
+import './components/Favorites/Favorites.css';
 import './components/Navbar.css'
 import FirstScreen from './components/HomePage/FirstScreen/FirstScreen'
 import FilmDisplay from './components/HomePage/FilmDisplay/FilmDisplay'
-import FavoriteMoviecard from './components/Favorites/FavoriteMovieCard/FavoriteMoviecard'
+import FavoriteFilmDiplay from './components/Favorites/FavoriteFilmDisplay'
 
 document.addEventListener('scroll', (event) =>
 {
@@ -31,13 +32,13 @@ document.addEventListener('scroll', (event) =>
 
 function App(){
   const [searchField, setSearchField] = useState('')
-  const [favoritesMovies, setFavoritesMovies] = useState([])
+  const [favoritesMovies, setFavoritesMovies] = useState(JSON.parse(window.localStorage.getItem('FavoriteMovies')))
+
   const upDateSearch = (e) =>
   {
     setSearchField(e.target.value)
     // setPageNumber(1)
   }
-
 
   return (
     <Router>
@@ -46,10 +47,14 @@ function App(){
           <nav className="navbar header-navbar">
               <div className="movie-time-logo"><Link to='/'>MOVIE TIME</Link></div>
               <div className="navbar-items-container">
+                {
+                  window.location.pathname == "/" &&
                   <div className="search-container">
                       <input onChange = {upDateSearch} type="text" className="search-field"/>
                       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/VisualEditor_-_Icon_-_Search-big_-_white.svg/1200px-VisualEditor_-_Icon_-_Search-big_-_white.svg.png" alt="" className="search-icon"/>
                   </div>
+                }
+
                   <span><Link to='/'>Home</Link></span>
                   <span><Link to='/favorites'>Favorites</Link></span>
               </div>
@@ -66,98 +71,93 @@ function App(){
       </div>
     </Router>
 
-  )}
+)}
 
-  function Home(props) {
-    const [movieDatas, setMovieDatas] = useState([])
-    const [firstMovie, setFirstMovie] = useState('empty')
-    const [pageNumber, setPageNumber] = useState(1)
+function Home(props) {
+  const [movieDatas, setMovieDatas] = useState([])
+  const [firstMovie, setFirstMovie] = useState('empty')
+  const [pageNumber, setPageNumber] = useState(1)
 
 
-    useEffect(()=>
+  useEffect(()=>
+  {
+    if(props.searchField !== '')
     {
-      if(props.searchField !== '')
-      {
-  
-        fetch(`https://api.themoviedb.org/3/search/movie?api_key=0bb47688d9717ccbbc0f747be389c94a&language=en-US&sort_by=popularity.desc&page=${pageNumber}&query=${props.searchField}`)
-        .then(result => result.json())
-        .then(result => 
-          {
-            fetch(`https://api.themoviedb.org/3/movie/${result.results?.[0]?.id}?api_key=0bb47688d9717ccbbc0f747be389c94a&language=en-US`)
-            .then(res => res.json())
-            .then(res => {
-              setFirstMovie(res)
-            })
-            const tempArray = result.results
-            tempArray.shift()
-            setMovieDatas(tempArray)
-          })
-      }
-      else { 
-        fetch(`https://api.themoviedb.org/3/discover/movie?api_key=0bb47688d9717ccbbc0f747be389c94a&sort_by=popularity.desc&page=${pageNumber}`)
-        .then(result => result.json())
-        .then(result => 
-          {
-            fetch(`https://api.themoviedb.org/3/movie/${result.results?.[0]?.id}?api_key=0bb47688d9717ccbbc0f747be389c94a&language=en-US`)
-            .then(res => res.json())
-            .then(res => {
-              setFirstMovie(res)
-            })
-            const tempArray = result.results
-            tempArray.shift()
-            setMovieDatas(tempArray)
-          })
-        }
-    }, [props.searchField, pageNumber])
 
-  
-    const previousPage = () =>
-    {
-      if(pageNumber > 1)
-      {
-  
-        const tempNumber = pageNumber - 1
-        setPageNumber(tempNumber)
-  
-        window.scrollTo({ top : 0, behavior : 'smooth'})
-      }
+      fetch(`https://api.themoviedb.org/3/search/movie?api_key=0bb47688d9717ccbbc0f747be389c94a&language=en-US&sort_by=popularity.desc&page=${pageNumber}&query=${props.searchField}`)
+      .then(result => result.json())
+      .then(result => 
+        {
+          fetch(`https://api.themoviedb.org/3/movie/${result.results?.[0]?.id}?api_key=0bb47688d9717ccbbc0f747be389c94a&language=en-US`)
+          .then(res => res.json())
+          .then(res => {
+            setFirstMovie(res)
+          })
+          const tempArray = result.results
+          tempArray.shift()
+          setMovieDatas(tempArray)
+        })
     }
-  
-    const nextPage = () =>
+    else { 
+      fetch(`https://api.themoviedb.org/3/discover/movie?api_key=0bb47688d9717ccbbc0f747be389c94a&sort_by=popularity.desc&page=${pageNumber}`)
+      .then(result => result.json())
+      .then(result => 
+        {
+          fetch(`https://api.themoviedb.org/3/movie/${result.results?.[0]?.id}?api_key=0bb47688d9717ccbbc0f747be389c94a&language=en-US`)
+          .then(res => res.json())
+          .then(res => {
+            setFirstMovie(res)
+          })
+          const tempArray = result.results
+          tempArray.shift()
+          setMovieDatas(tempArray)
+        })
+      }
+  }, [props.searchField, pageNumber])
+
+
+  const previousPage = () =>
+  {
+    if(pageNumber > 1)
     {
-      const tempNumber = pageNumber + 1
+
+      const tempNumber = pageNumber - 1
       setPageNumber(tempNumber)
-  
+
       window.scrollTo({ top : 0, behavior : 'smooth'})
     }
-   
-    return (
-      <div className="App">
-        {/* <Navbar/> */}
-        <FirstScreen favoritesMovies={props.favoritesMovies} firstMovie={firstMovie}/>
-        <FilmDisplay favoritesMovies={props.favoritesMovies} movieDatas = {movieDatas}/>
-        <div className="pages-btns">
-          <div onClick={previousPage} className="previous-btn btn">Previous</div>
-          <div onClick={nextPage} className="next-btn btn">Next</div>
-        </div>
-  
-      </div>
-    );  
   }
 
+  const nextPage = () =>
+  {
+    const tempNumber = pageNumber + 1
+    setPageNumber(tempNumber)
+
+    window.scrollTo({ top : 0, behavior : 'smooth'})
+  }
+  
+  return (
+    <div className="App">
+      {/* <Navbar/> */}
+      <FirstScreen favoritesMovies={props.favoritesMovies} firstMovie={firstMovie}/>
+      <FilmDisplay favoritesMovies={props.favoritesMovies} movieDatas = {movieDatas}/>
+      <div className="pages-btns">
+        <div onClick={previousPage} className="previous-btn btn">Previous</div>
+        <div onClick={nextPage} className="next-btn btn">Next</div>
+      </div>
+
+    </div>
+  );  
+}
+
 function Favorite(props) {
-    console.log('nreder favorites')
     return (
         <div className="favorites-container">
-          <h1 className="favorite-title">Favorites movies</h1>
-          {props.favoritesMovies.map((favoriteMovie, index) =>
-          ( 
-            <FavoriteMoviecard favoriteMovie={favoriteMovie} key={index}/>
-          ))}
+          <FavoriteFilmDiplay favoritesMovies={props.favoritesMovies}/>
         </div>
         )
     }
-    
+  
 export default App;
 
 

@@ -52,7 +52,22 @@
     align-items: center;
     justify-content: center;
     text-align: center;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: .2s cubic-bezier(.72,.24,.28,.78);
 }
+
+.heart {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    float: left;
+}
+
+.add-favorites-btn:active{
+    transform: scale(1.1);
+}
+  
 
 .favorite-btn{
     width: 20px;
