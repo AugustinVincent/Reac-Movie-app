@@ -13,7 +13,7 @@ function AddToFavoritesBtn(props) {
                 window.localStorage.setItem('FavoriteMovies',  JSON.stringify(tempArray))
                 props.favoritesMovies.splice(index,1)
                 alreadyInList = true
-                console.log(window.localStorage)
+                console.log(props.movie)
             } 
         });
         if(!alreadyInList)
@@ -22,7 +22,6 @@ function AddToFavoritesBtn(props) {
             tempArray.push(props.movie)
             window.localStorage.setItem('FavoriteMovies',  JSON.stringify(tempArray))
             props.favoritesMovies.push(props.movie)
-            console.log(window.localStorage)
         } 
     }
     return (

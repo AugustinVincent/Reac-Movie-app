@@ -100,7 +100,7 @@ function FilmCard(props) {
                                 <ul>
                                     <li>Runtime : {movieTime(newMovieData?.runtime)}</li>
                                     <li>From : {newMovieData?.production_countries?.[0]?.name}</li>
-                                    <li>Arthur : Thouin</li>
+                                    <li>Popularity : {Math.round(newMovieData?.popularity)}</li>
                                 </ul>
                             </div>
                         </div>
