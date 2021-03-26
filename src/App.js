@@ -18,7 +18,7 @@ document.addEventListener('scroll', (event) =>
 {
   if(event.path[1].scrollY > 100)
   {
-    document.querySelector('.navbar.header-navbar').style.background = 'rgba(0,0,0, 0.6)'
+    document.querySelector('.navbar.header-navbar').style.background = 'rgba(1,5,17, 0.6)'
     document.querySelector('.navbar.header-navbar').style.backdropFilter = 'blur(10px)'
   }
   else
