@@ -12,6 +12,7 @@
 
 
 .trailer-btn{
+    position: relative;
     width: 150px;
     height: 30px;
     line-height: 30px;
@@ -22,6 +23,24 @@
     color: var(--primary-text-color);
     border-radius: 30px;
     text-align: center;
+}
+
+.trailer-btn::after{
+    content: 'SEE TRAILER';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150px;
+    height: 30px;
+    border-radius: 30px;
+    background: var(--primary-color);
+    filter: blur(10px);
+    opacity: 0;
+    transition: .4s cubic-bezier(.72,.24,.28,.78);
+}
+
+.trailer-btn:hover::after{
+    opacity: 0.4;
 }
 
 .trailer-btn .play-btn{
