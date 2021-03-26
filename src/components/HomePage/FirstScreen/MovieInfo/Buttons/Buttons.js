@@ -9,7 +9,7 @@ function Buttons(props) {
     return (
         <div className="buttons-container">
             <SeeTrailerBtn/>
-            <WatchMoreBtn/>
+            <WatchMoreBtn movie={props.firstMovie}/>
             <AddToFavoritesBtn movie={props.firstMovie} favoritesMovies={props.favoritesMovies}/>
         </div>
     )

@@ -1,8 +1,9 @@
 import React from 'react'
 import './Buttons.css'
-function WatchMoreBtn() {
+function WatchMoreBtn(props) {
+    console.log(props.movie)
     return (
-         <div className="watch-more">Watch more</div>
+         <a href={props.movie.homepage} target="_blank"><div className="watch-more">Watch more</div></a>
     )
 }
 

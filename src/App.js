@@ -80,11 +80,8 @@ function Home(props) {
   const [movieDatas, setMovieDatas] = useState([])
   const [firstMovie, setFirstMovie] = useState('empty')
   const [pageNumber, setPageNumber] = useState(1)
-<<<<<<< HEAD
-=======
 
 
->>>>>>> router
   useEffect(()=>
   {
     if(props.searchField !== '')
@@ -121,14 +118,6 @@ function Home(props) {
       }
   }, [props.searchField, pageNumber])
 
-<<<<<<< HEAD
-  const upDateSearch = (e) =>
-  {
-    setSearchField(e.target.value)
-    setPageNumber(1)
-  }
-=======
->>>>>>> router
 
   const previousPage = () =>
   {
@@ -152,26 +141,9 @@ function Home(props) {
   
   return (
     <div className="App">
-<<<<<<< HEAD
-      <nav className="navbar header-navbar">
-            <div className="movie-time-logo">MOVIE TIME</div>
-            <div className="navbar-items-container">
-                <div className="search-container">
-                    <input onChange={upDateSearch} type="text" className="search-field" value={searchField}/>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/VisualEditor_-_Icon_-_Search-big_-_white.svg/1200px-VisualEditor_-_Icon_-_Search-big_-_white.svg.png" alt="" className="search-icon"/>
-                </div>
-                <a href='#' ><span>Home</span></a>
-                <span>Favorites</span>
-            </div>
-        </nav>
-      {/* <Navbar searchField={}/> */}
-      <FirstScreen firstMovie={firstMovie}/>
-      <FilmDisplay movieDatas = {movieDatas}/>
-=======
       {/* <Navbar/> */}
       <FirstScreen favoritesMovies={props.favoritesMovies} firstMovie={firstMovie}/>
       <FilmDisplay favoritesMovies={props.favoritesMovies} movieDatas = {movieDatas}/>
->>>>>>> router
       <div className="pages-btns">
         <div onClick={previousPage} className="previous-btn btn">Previous</div>
         <div onClick={nextPage} className="next-btn btn">Next</div>

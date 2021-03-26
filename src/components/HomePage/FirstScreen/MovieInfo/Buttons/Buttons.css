@@ -64,6 +64,13 @@
     border: 1px solid var(--primary-text-color);
     border-radius: 30px;
     margin: 0 10px;
+    transition: .2s cubic-bezier(.72,.24,.28,.78);
+}
+
+.watch-more:hover{
+    color:  var(--primary-color);
+    border: 1px solid var(--primary-color);
+    transform: scale(1.05);
 }
 
 .add-favorites-btn{
@@ -74,6 +81,11 @@
     white-space: nowrap;
     cursor: pointer;
     transition: .2s cubic-bezier(.72,.24,.28,.78);
+}
+
+.add-favorites-btn:hover{
+    color:  var(--primary-color);
+    transform: scale(1.05);
 }
 
 .heart {

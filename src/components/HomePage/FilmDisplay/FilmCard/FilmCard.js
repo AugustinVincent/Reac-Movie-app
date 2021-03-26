@@ -8,11 +8,8 @@ import Buttons from '../../FirstScreen/MovieInfo/Buttons/Buttons';
 const IMG_API = "https://image.tmdb.org/t/p/w1280";
 function FilmCard(props) {
     const [newMovieData, setNewMovieData] = useState(props.movieData)
-<<<<<<< HEAD:src/components/FilmDisplay/FilmCard/FilmCard.js
     const [relatedMovies, setRelatedMovies] = useState({})
     const [fullscreenMovie, setFullscreenMovie] = useState(false)
-=======
->>>>>>> router:src/components/HomePage/FilmDisplay/FilmCard/FilmCard.js
     const displayFilmDetails  = () =>
     {
         const MOVIE_API =`https://api.themoviedb.org/3/movie/${props.movieId}?api_key=0bb47688d9717ccbbc0f747be389c94a&language=en-US`
