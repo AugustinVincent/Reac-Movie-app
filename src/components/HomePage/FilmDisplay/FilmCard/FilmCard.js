@@ -53,6 +53,14 @@ function FilmCard(props) {
                 <div className="film-infos">
                     <h4 className="film-title">{newMovieData?.original_title}</h4>
                     <StarsRate movieId={newMovieData?.id}/>
+                    <div className="hover-container">
+                        <h4 className="film-title">{newMovieData?.original_title}</h4>
+                            <div className="vote-average">
+                            <span>{newMovieData?.vote_average}</span>
+                        <StarsRate movieId={newMovieData?.id}/>
+                        </div>
+                    </div>
+        
                 </div>
             </div>
         )
