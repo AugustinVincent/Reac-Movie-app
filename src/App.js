@@ -28,11 +28,14 @@ document.addEventListener('scroll', (event) =>
   }
 })
 
-
+if(localStorage.length < 1)
+{
+  localStorage.setItem('FavoriteMovies', JSON.stringify([]))
+}
 
 function App(){
   const [searchField, setSearchField] = useState('')
-  const [favoritesMovies, setFavoritesMovies] = useState(JSON.parse(window.localStorage.getItem('FavoriteMovies')))
+  const [favoritesMovies, setFavoritesMovies] = useState(JSON.parse(localStorage.getItem('FavoriteMovies')))
 
   const upDateSearch = (e) =>
   {
