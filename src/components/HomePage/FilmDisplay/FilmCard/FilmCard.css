@@ -60,7 +60,7 @@
     border-radius: 20px;
     overflow: hidden;
     width: 800px;
-    height: 80%;
+    height: 75%;
     background: #010511;
     margin-top: 100px;
     position: relative;
@@ -196,5 +196,115 @@
 }
 
 .fullscreen-movie-container .related-movies {
-    padding: 30px;
+    padding: 20px;
+    padding-top: 0;
+}
+
+@media (max-width : 900px)
+{
+    .background-img-movie{
+        width: 100%;
+        min-height: initial;
+        background: #222222;
+    }
+    
+      .fullscreen-movie-container .backdrop-movie-container .content{
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        height: initial;
+        z-index: 25;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+    
+    .fullscreen-movie-container .content .top-container{
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        position: relative;
+        top: 0;
+        left: 0;
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    .fullscreen-movie-container .backdrop-movie-container .content .movie-poster{
+        display: none;
+    }
+    
+    
+    .fullscreen-movie-container .content .top-container .right-container{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .fullscreen-movie-container .film-title
+    {
+        font-size: 40px;
+        margin: 0;
+    }
+    
+    .fullscreen-movie-container .related-movie-infos {
+        margin: 10px 0;
+        align-items: center;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+    .fullscreen-movie-container .related-movie-infos .actor .grey-text{
+        margin-left: 0;
+    }
+
+    .fullscreen-movie-container .related-movie-infos>span{
+
+        margin-left: 0;
+        max-width: initial;
+    }
+    
+    
+    
+    .text-info-container{
+        display: flex;
+        margin: 50px 0;
+        margin-top: 20px;
+        width: 100%;
+        flex-direction: column;
+    }
+    
+    .fullscreen-movie-container .overview{
+        width: 100%;
+        color: #999999;
+    }
+    
+    
+    
+    .text-info-container ul{
+        width: 100%;
+        padding: 0;
+    }
+    
+    .fullscreen-movie-container .related-movies {
+        padding: 20px;
+        padding-top: 0;
+         margin-top: 80px;
+    }
+
+    .buttons-container{
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .buttons-container .watch-more{
+        margin: 10px 0;
+    }
+
+    .App{
+        padding-top: 60px;
+    }
 }

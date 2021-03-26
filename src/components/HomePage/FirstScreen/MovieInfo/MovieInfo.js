@@ -9,7 +9,7 @@ function MovieInfo(props) {
     return (
         <div className="movie-info-container">
             <TextInfo firstMovie={props.firstMovie}/>
-            <Buttons/>
+            <Buttons firstMovie={props.firstMovie} favoritesMovies={props.favoritesMovies}/>
         </div>
     )
 }

@@ -1,0 +1,25 @@
+.favorites-container{
+    min-height: 100vh;
+    background: #010511 ;
+    display: flex;
+    color: var(--primary-text-color);
+}
+
+.favorites-container .content-container{
+    margin-top: 100px;
+    width: 100vw;
+    padding-left: 40px;
+}
+
+.favorites-container .content-container .film-container{
+    justify-content: flex-start;
+    padding: 50px 0 ;
+}
+.favorites-container .content-container .film-container .film-container{
+    margin: 20px;
+}
+
+.favorites-container .favorite-title{
+    color: var(--primary-text-color);
+    margin: 0;
+}

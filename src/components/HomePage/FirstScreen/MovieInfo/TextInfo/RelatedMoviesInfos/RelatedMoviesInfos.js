@@ -1,10 +1,10 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 import StarsRate from '../StarsRate/StarsRate'
 import './RelatedMoviesInfos.css'
 
 function RelatedMoviesInfos(props) {
     let releaseDate = '-'
-    if(props.firstMovie?.release_date != undefined)
+    if(props.firstMovie?.release_date !== undefined)
     {
         releaseDate = props.firstMovie?.release_date.split('-')[0]
     }

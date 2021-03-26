@@ -9,6 +9,7 @@
 }
 
 ::-webkit-scrollbar-track {
+<<<<<<< HEAD
   background : #000000;
   border:none;
 }
@@ -27,6 +28,30 @@
 a{
   text-decoration: none;
   color: var(--primary-text-color);
+=======
+  background : #1e2948;
+  border-radius: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: #010511; 
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #11172b; 
+}
+
+a{
+  text-decoration: none;
+  color: var(--primary-text-color);
+}
+
+
+.App{
+  background: #010511;
+  padding-top: 60px;
+>>>>>>> router
 }
 
 .pages-btns{

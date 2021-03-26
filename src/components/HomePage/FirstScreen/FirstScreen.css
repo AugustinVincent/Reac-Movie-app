@@ -36,14 +36,21 @@
     height: 100%;
     display: flex;
     justify-content: flex-start;
-    align-items: flex-end;
-    padding: 8%;
+    align-items: flex-end;    
+    padding: 85px
   }
 
-  @media (max-width : 700px)
+  @media (max-width : 900px)
 {
-  .landing-screen .page-content{
-    justify-content: center;
-    align-items: center;
+  .landing-screen{
+    overflow-y: visible;
   }
+
+  .landing-screen .page-content{
+    display: block;
+    padding: 10px;
+    height: auto;
+  }
+
+
 }
